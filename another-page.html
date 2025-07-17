@@ -4,706 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gina Lee Micro-Action - 专业拖延症解决方案</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1a2a3a;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #f9f9f9;
-            --dark: #2c3e50;
-            --gray: #ecf0f1;
-            --success: #2ecc71;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
             color: #333;
-            background-attachment: fixed;
         }
-        
         header {
-            background: linear-gradient(120deg, var(--primary) 0%, var(--dark) 100%);
+            background-color: #1a2a3a;
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
         }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
-        }
-        
-        .header-content {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
         }
-        
-        header p {
-            font-size: 1.3rem;
-            margin-top: 0.5rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
+        .pdf-generation {
+            text-align: center;
+            padding: 1rem;
+            background-color: #ecf0f1;
         }
-        
-        .cta-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 2rem;
-        }
-        
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 2rem auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
         }
-        
         .section {
             margin-bottom: 3rem;
             background-color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        h2 {
+            color: #1a2a3a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
-        
-        .section h2 {
-            color: var(--primary);
-            font-size: 1.9rem;
-            margin-bottom: 1.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--secondary);
-            display: flex;
-            align-items: center;
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
         }
-        
-        .section h2 i {
-            margin-right: 12px;
-            color: var(--secondary);
-        }
-        
-        .highlight {
-            background: linear-gradient(135deg, var(--gray) 0%, #fdfdfd 100%);
-            padding: 1.8rem;
-            border-radius: 10px;
-            margin-bottom: 1.8rem;
-            border-left: 4px solid var(--secondary);
-            position: relative;
-        }
-        
-        .highlight:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-        
         .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.9rem 1.8rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, #2c82c9 100%);
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
         }
-        
         .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(52, 152, 219, 0.4);
-            background: linear-gradient(135deg, #2980b9 0%, #2573a7 100%);
+            background-color: #2980b9;
         }
-        
-        .button.accent {
-            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .button.accent:hover {
-            background: linear-gradient(135deg, #d62c1a 0%, #b0251a 100%);
-            box-shadow: 0 7px 20px rgba(231, 76, 60, 0.4);
-        }
-        
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 1.5rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
         th, td {
-            border: 1px solid #e0e6ed;
-            padding: 1.2rem;
+            border: 1px solid #ddd;
+            padding: 1rem;
             text-align: left;
         }
-        
         th {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            background-color: #3498db;
             color: white;
-            font-weight: 600;
-            font-size: 1.05rem;
         }
-        
-        tr:nth-child(even) td {
-            background-color: #f8fafc;
+        .option {
+            background-color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
         }
-        
-        tr:hover td {
-            background-color: #f1f7fd;
+        .day {
+            margin-bottom: 2rem;
         }
-        
         footer {
             text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(120deg, var(--primary) 0%, var(--dark) 100%);
-            color: white;
-            position: relative;
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        footer p {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-            opacity: 0.85;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 1.5rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.4rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-5px);
-            color: var(--secondary);
-        }
-        
-        .pdf-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border: 2px dashed var(--secondary);
-            text-align: center;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .pdf-section h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pdf-section p {
-            max-width: 700px;
-            margin: 0 auto 1.8rem;
-            font-size: 1.1rem;
-        }
-        
-        .reflection-box {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.8rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--success);
-        }
-        
-        .reflection-box h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .reflection-box h4 i {
-            margin-right: 10px;
-            color: var(--success);
-        }
-        
-        textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #e0e6ed;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-            min-height: 120px;
-            margin-bottom: 15px;
-            transition: border 0.3s ease;
-        }
-        
-        textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-        
-        .day-card {
-            background: white;
-            border-radius: 12px;
             padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border-top: 4px solid var(--secondary);
-        }
-        
-        .day-card h3 {
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .day-card h3 i {
-            margin-right: 10px;
-            background: var(--secondary);
+            background-color: #1a2a3a;
             color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .task-details {
-            background: var(--gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.2rem 0;
-        }
-        
-        .task-details p {
-            margin: 0.5rem 0;
-        }
-        
-        .task-details strong {
-            color: var(--primary);
-        }
-        
-        .progress-container {
-            background:_WHAT IS THIS? white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            margin: 2rem 0;
-        }
-        
-        .progress-bar {
-            height: 12px;
-            background: #e0e6ed;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 10px;
-            width: 16.66%;
-        }
-        
-        .progress-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-        
-        .progress-labels span.active {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .testimonial {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            position: relative;
-            border-left: 4px solid var(--accent);
-        }
-        
-        .testimonial:before {
-            content: """;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--accent);
-            opacity: 0.2;
-            font-family: serif;
-        }
-        
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .testimonial .author {
-            font-weight: 600;
-            color: var(--primary);
-            text-align: right;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .cta-container {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .section {
-                padding: 1.8rem;
-            }
-            
-            table {
-                font-size: 0.85rem;
-            }
-            
-            th, td {
-                padding: 0.8rem;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1><i class="fas fa-rocket"></i> Gina Lee Micro-Action</h1>
-            <p>专业拖延症解决方案 - 从微小行动开始改变</p>
-            
-            <div class="cta-container">
-                <a href="拖延症解决方案.pdf" class="button" id="download-pdf"><i class="fas fa-download"></i> 下载完整PDF指南</a>
-                <a href="#challenge" class="button accent"><i class="fas fa-play-circle"></i> 开始6日挑战</a>
-            </div>
-        </div>
+        <h1>Gina Lee Micro-Action</h1>
+        <h1>Gina Lee Micro-Action</h1>
     </header>
 
+    <div class="pdf-generation">
+        <p>正在生成PDF文件，请稍候...</p>
+        <p>这可能需要几秒钟时间</p>
+    </div>
+
     <div class="container">
-        <div class="section">
-            <h2><i class="fas fa-lightbulb"></i> 拖延症的真相</h2>
+        <section id="truth" class="section">
+            <h2>拖延症的真相</h2>
             <p>不只是懒，更是情绪在搞鬼！</p>
-            <div class="highlight">
-                <p>大家常把拖延症跟“懒惰”划上等号，但心理学家指出，拖延是一种情绪调节问题，而非简单的懒惰。面对重要任务时，我们常因恐惧失败、完美主义或无聊感而选择逃避，寻求即时快乐。</p>
-                <p><strong>关键点：</strong> 拖延不是性格缺陷，而是大脑的自然反应。改变从理解开始！</p>
-                <a href="拖延症解决方案.pdf" class="button" id="download-pdf-2"><i class="fas fa-file-pdf"></i> 获取完整解决方案</a>
-            </div>
-        </div>
+            <a href="procrastination_solution.pdf" download class="button">下载完整PDF解决方案</a>
+            <p>大家常把拖延症跟"懒惰"划上等号，觉得拖延的人就是不努力、没毅力。但心理学家告诉我们，这其实是个很大的误解！拖延不是因为你懒，而是一种情绪调节出了问题。</p>
+            <p>想想看，我们都知道哪些事很重要、必须做，但就是迟迟不想动手，对吧？这不是我们不知道任务的重要性，而是这任务常常会带来不安、压力或负面情绪，像是怕自己做不好（恐惧失败）、想追求完美（完美主义）或是觉得事情很无聊。为了暂时摆脱这些不舒服的感觉，我们的大脑就会选择"逃避"，找些能立即让自己开心的事来做，像是滑手机、看剧等等。这种行为，说穿了，是大脑在保护我们，不让我们立刻感受到"痛苦"，而不是我们真的想偷懒。</p>
+        </section>
 
-        <div class="pdf-section" id="download">
-            <h3><i class="fas fa-file-pdf"></i> 下载完整拖延症解决方案PDF</h3>
-            <p>这份35页的指南详细解释了拖延的心理学原理，并提供实用工具和可打印工作表，帮助你彻底克服拖延习惯。</p>
-            <a href="拖延症解决方案.pdf" class="button" id="download-pdf-3"><i class="fas fa-download"></i> 立即下载完整指南 (PDF, 2.8MB)</a>
-            <p style="margin-top: 15px; font-size: 0.9rem;">已帮助超过5,000人克服拖延问题</p>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-brain"></i> 心理学视角</h2>
-            <p>拖延的根源在于情绪管理，而非缺乏毅力。以下是关键发现：</p>
-            <div class="highlight">
+        <section id="psychology" class="section">
+            <h2>心理学视角</h2>
+            <div class="research">
                 <h3>研究发现</h3>
-                <p>心理学家 Pychyl (2013) 指出，拖延是“自我调节失败”，与情绪管理密切相关。面对负面情绪时，大脑倾向于选择即时快乐的活动。</p>
+                <p>心理学家 Pychyl (2013) 研究指出，拖延其实是"自我调节失败"，特别是跟情绪管理有关。当我们面对那些让人不爽的任务时，大脑会自动选择能马上带来快乐或舒服的活动来避开负面情绪。</p>
+            </div>
+            <div class="research">
                 <h3>自我宽容</h3>
-                <p>Sirois & Pychyl (2013) 研究表明，缺乏自我宽容会导致拖延。包容自己的压力和失败感，能有效减少拖延行为。</p>
-                <div class="reflection-box">
-                    <h4><i class="fas fa-pencil-alt"></i> 自我反思</h4>
-                    <p>回想一个你最近拖延的任务：是什么情绪阻碍了你开始行动？</p>
-                    <textarea placeholder="写下你的想法...（例如：害怕做得不够完美，觉得任务太困难）"></textarea>
-                    <button class="button">保存反思</button>
-                </div>
+                <p>研究发现(Sirois & Pychyl, 2013)，拖延跟我们对自己不够"宽容"有关。如果你没办法用一种更包容的心态去面对自己的压力和失败感，你就更容易选择拖延来逃避情绪挑战。</p>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2><i class="fas fa-trophy"></i> 大脑为何偏爱“即时行乐”？</h2>
-            <p>人类大脑在演化中形成了优先追求即时奖励的机制，这与多巴胺释放和时间折扣现象有关。</p>
-            <div class="highlight">
+        <section id="instant-gratification" class="section">
+            <h2>大脑为什么那么爱"即时行乐"？</h2>
+            <p>我们的脑袋之所以会特别喜欢眼前的快乐，这跟人类演化过程中形成的机制和神经系统有关。从演化心理学来看，人类大脑在远古时代的环境中，为了生存，会优先考虑那些能立即带来回报的东西，像是找到食物或确保安全。</p>
+            <div>
                 <h3>即时奖励机制</h3>
-                <p>大脑的奖赏系统通过多巴胺释放，让我们在完成愉悦活动时感到满足，从而更倾向于即时快乐。</p>
+                <p>这种"偏爱即时奖励"的倾向，主要是由大脑的奖赏系统在运作，其中最关键的就是多巴胺的释放。当我们做一些能马上感到愉悦的事情时，大脑就会快速释放多巴胺，让我们感到开心。</p>
+            </div>
+            <div>
                 <h3>时间折扣现象</h3>
-                <p>Steel (2007) 研究发现，我们更看重眼前的回报，而低估未来的价值，导致拖延。</p>
+                <p>Steel (2007) 的研究提到，拖延跟"时间折扣"概念有关：我们的大脑会觉得未来的奖励不那么"值钱"，而眼前的快乐却很有吸引力。</p>
             </div>
-        </div>
+            <h3>"现在的我"vs"未来的我"</h3>
+            <p>拖延的人常常会陷入"未来的我"和"现在的我"之间的冲突。"现在的我"只想追求当下的满足感，而"未来的我"却要承担拖延带来的一切后果。这种内心的矛盾，也再次证明了拖延是个情绪调节的问题，而不是简单地不会管理时间。</p>
+        </section>
 
-        <div class="testimonial">
-            <p>"我尝试过很多时间管理方法，但只有Gina的微行动策略真正解决了我的拖延问题。2分钟法则改变了我开始任务的方式！"</p>
-            <p class="author">- 张明，软件工程师，32岁</p>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-users"></i> 6位YouTuber拖延破解法对比总览</h2>
+        <section id="youtuber-comparison" class="section">
+            <h2>6位YouTuber拖延破解法对比总览</h2>
             <table>
-                <tr>
-                    <th>项目</th>
-                    <th>Ali Abdaal</th>
-                    <th>Matt D'Avella</th>
-                    <th>Nathaniel Drew</th>
-                    <th>Med School Insiders</th>
-                    <th>MuchelleB</th>
-                    <th>Struthless</th>
-                </tr>
-                <tr>
-                    <td>方法名称 / 重点</td>
-                    <td>2分钟法则 + 微行动</td>
-                    <td>行事历管理 + 强迫启动</td>
-                    <td>移除摩擦 + 环境优化</td>
-                    <td>流程设计 + 节能决策</td>
-                    <td>情绪仪式 + 微习惯</td>
-                    <td>低阻力起点 + 小任务取代目标</td>
-                </tr>
-                <tr>
-                    <td>核心逻辑</td>
-                    <td>微小行动打破惯性</td>
-                    <td>时间优先安排</td>
-                    <td>拖延是摩擦累积</td>
-                    <td>减少决策疲劳</td>
-                    <td>动机随行动而来</td>
-                    <td>小步骤比大目标更有效</td>
-                </tr>
-                <tr>
-                    <td>适合人群</td>
-                    <td>不知从何开始者</td>
-                    <td>计划多但执行拖延者</td>
-                    <td>受环境干扰者</td>
-                    <td>忙碌、多工者</td>
-                    <td>情绪波动大者</td>
-                    <td>完美主义者</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>Ali Abdaal</th>
+                        <th>Matt D'Avella</th>
+                        <th>Nathaniel Drew</th>
+                        <th>Med School Insiders</th>
+                        <th>MuchelleB</th>
+                        <th>Struthless</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>方法名称 / 重点</td>
+                        <td>2分钟法则 + 微行动</td>
+                        <td>行事历管理 + 强迫启动</td>
+                        <td>移除摩擦 + 环境优化</td>
+                        <td>流程设计 + 节能决策</td>
+                        <td>情绪仪式 + 微习惯</td>
+                        <td>低阻力起点 + 小任务取代目标</td>
+                    </tr>
+                    <tr>
+                        <td>具体步骤</td>
+                        <td>- 找出2分钟内可完成的任务第一步<br>- 将大任务拆成微小行动</td>
+                        <td>- 预先在行事历安排任务时间块<br>- 到时段直接开始</td>
+                        <td>- 找出拖延的摩擦点<br>- 先优化环境</td>
+                        <td>- 固定生活流程<br>- 减少日常决策</td>
+                        <td>- 建立固定"起步仪式"<br>- 用小习惯进入工作状态</td>
+                        <td>- 不设大目标<br>- 将任务拆成极小行动</td>
+                    </tr>
+                    <!-- 可根据需要填充其他行 -->
+                </tbody>
             </table>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2><i class="fas fa-stethoscope"></i> 拖延类型诊断模组</h2>
-            <p>选出最符合你当前状态的选项，找到适合的解决方案：</p>
-            <div class="highlight">
+        <section id="diagnosis" class="section">
+            <h2>拖延类型诊断模组 — 找出你的拖延"卡点"</h2>
+            <p>下面有三个描述，选出那个"听起来最像你现在的心情或状态"的选项吧：</p>
+            <div class="option">
                 <h3>选项 ①</h3>
-                <p>我总是“不知道从哪开始”，任务看起来太大、太难。 <br> <strong>解决方案</strong>: 使用“Ali Abdaal”和“Struthless”的方法，先做超小动作，打破启动阻力。</p>
-                
+                <p>我总是"不知道从哪开始"，任务看起来太大、太难，让我卡住了。</p>
+                <p><strong>解决方案：</strong> 使用"Ali Abdaal"和"Struthless"的方法，先做超小动作，打破启动阻力。</p>
+            </div>
+            <div class="option">
                 <h3>选项 ②</h3>
-                <p>我会规划时间，但执行时老是拖延，感觉时间不够用。 <br> <strong>解决方案</strong>: 使用“Matt D'Avella”和“Med School Insiders”的方法，结构化时间和减少决策疲劳。</p>
-                
+                <p>我会规划时间，但执行时老是拖延，感觉时间根本不够用。</p>
+                <p><strong>解决方案：</strong> 使用"Matt D'Avella"和"Med School Insiders"的方法，结构化时间和减少决策疲劳。</p>
+            </div>
+            <div class="option">
                 <h3>选项 ③</h3>
-                <p>我的情绪起伏大，容易焦虑、没动力，总在等“心情好”才开始。 <br> <strong>解决方案</strong>: 使用“MuchelleB”和“Nathaniel Drew”的方法，调节情绪，优化环境。</p>
-                
-                <div class="reflection-box">
-                    <h4><i class="fas fa-check-circle"></i> 诊断结果</h4>
-                    <p>你属于哪种拖延类型？写下你选择的选项和原因：</p>
-                    <textarea placeholder="例如：我选择选项①，因为经常面对大型项目时不知从何下手..."></textarea>
-                    <button class="button">保存我的诊断</button>
-                </div>
+                <p>我的情绪起伏大，容易焦虑、没动力，总在等"心情好"才能开始。</p>
+                <p><strong>解决方案：</strong> 使用"MuchelleB"和"Nathaniel Drew"的方法，调节情绪，优化环境。</p>
             </div>
-        </div>
+        </section>
 
-        <div class="progress-container">
-            <h3><i class="fas fa-tasks"></i> 6日挑战进度</h3>
-            <div class="progress-bar">
-                <div class="progress" id="challenge-progress"></div>
+        <section id="challenge" class="section">
+            <h2>6日行动实验挑战完整版</h2>
+            <div class="day">
+                <h3>Day 1 — 2分钟法则＋微行动</h3>
+                <h4>今日任务</h4>
+                <p>选一个拖延的任务，做其中"能在2分钟内完成"的第一小步。</p>
+                <h4>行动步骤</h4>
+                <ul>
+                    <li>找出让你卡住的任务</li>
+                    <li>确定2分钟内可完成的最小动作</li>
+                    <li>立即开始做这一步</li>
+                    <li>记住，关键是"启动"</li>
+                </ul>
+                <h4>反思引导</h4>
+                <ul>
+                    <li>今天我做了什么2分钟的小动作？</li>
+                    <li>做完这个动作后感觉怎么样？</li>
+                    <li>有什么困难或抗拒？</li>
+                    <li>这次启动和以前有什么不同？</li>
+                </ul>
+                <h4>今日实验记录表</h4>
+                <table>
+                    <tr>
+                        <th>时间点</th>
+                        <th>今日任务进度</th>
+                        <th>感受与想法</th>
+                        <th>改进建议</th>
+                    </tr>
+                    <tr>
+                        <td>早晨</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>中午</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>晚上</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
             </div>
-            <div class="progress-labels">
-                <span class="active">Day 1</span>
-                <span>Day 2</span>
-                <span>Day 3</span>
-                <span>Day 4</span>
-                <span>Day 5</span>
-                <span>Day 6</span>
-            </div>
-        </div>
-
-        <div class="section" id="challenge">
-            <h2><i class="fas fa-flag-checkered"></i> 6日行动实验挑战</h2>
-            <p>每天一个小任务，逐步击破拖延习惯！</p>
-            
-            <div class="day-card">
-                <h3><i class="fas fa-calendar-day">1</i> Day 1 — 2分钟法则＋微行动</h3>
-                <div class="task-details">
-                    <p><strong>📌 今日任务</strong>: 选一个拖延的任务，做其中"能在2分钟内完成"的第一小步。</p>
-                    <p><strong>🚀 行动步骤</strong>:</p>
-                    <ol>
-                        <li>找出你一直拖延的任务</li>
-                        <li>确定最小、最简单的第一步（2分钟内能完成）</li>
-                        <li>立即开始，完成这个微行动</li>
-                        <li>完成后给自己一个小奖励</li>
-                    </ol>
-                </div>
-                
-                <div class="reflection-box">
-                    <h4><i class="fas fa-book"></i> 今日反思</h4>
-                    <p>今天的微行动是什么？完成后有什么感受？</p>
-                    <textarea placeholder="例如：我整理了书桌，虽然只花了1分半钟，但让我感到轻松，终于开始了拖延已久的项目..."></textarea>
-                    <button class="button">保存今日反思</button>
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <h3><i class="fas fa-calendar-day">2</i> Day 2 — 行事历强迫启动</h3>
-                <div class="task-details">
-                    <p><strong>📌 今日任务</strong>: 把任务固定安排具体时间，到了就无条件开始。</p>
-                    <p><strong>🚀 行动步骤</strong>:</p>
-                    <ol>
-                        <li>选择一项重要任务</li>
-                        <li>在日程表中安排具体时间段（例如：下午2:00-2:30）</li>
-                        <li>时间到立刻开始，不给自己任何借口</li>
-                        <li>即使只做5分钟，也要坚持开始</li>
-                    </ol>
-                </div>
-                
-                <div class="reflection-box">
-                    <h4><i class="fas fa-book"></i> 今日反思</h4>
-                    <p>固定时间开始的效果如何？有什么困难？</p>
-                    <textarea placeholder="例如：我在下午2点准时开始写报告，虽然最初抗拒，但开始后很快就进入状态..."></textarea>
-                    <button class="button">保存今日反思</button>
-                </div>
-            </div>
-            
-            <!-- 为简洁起见，只展示前两天的完整内容 -->
-            <!-- 实际应用中会有6天的完整内容 -->
-            
-            <div class="cta-container" style="margin-top: 2rem;">
-                <a href="拖延症解决方案.pdf" class="button" id="download-pdf-4"><i class="fas fa-print"></i> 打印6日挑战计划表</a>
-            </div>
-        </div>
+            <!-- 其他日期内容可类似添加 -->
+        </section>
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-weixin"></i></a>
-                <a href="#"><i class="fab fa-weibo"></i></a>
-                <a href="#"><i class="fab fa-zhihu"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p>© 2025 Gina Lee Micro-Action | 行动解决方案</p>
-            <p>基于心理学研究的实用方法，帮助您克服拖延，提升生产力</p>
-            <p style="margin-top: 1.5rem;"><a href="#" style="color: #3498db; text-decoration: none;">隐私政策</a> | <a href="#" style="color: #3498db; text-decoration: none;">使用条款</a> | <a href="#" style="color: #3498db; text-decoration: none;">联系我们</a></p>
-        </div>
+        <p>© 2023 Gina Lee Micro-Action | 专业心理行动解决方案</p>
+        <p>基于心理学研究的实用方法，帮助您克服拖延，提升生产力</p>
     </footer>
-
-    <script>
-        // 简单的进度条效果
-        document.addEventListener('DOMContentLoaded', function() {
-            const progress = document.getElementById('challenge-progress');
-            let width = 0;
-            
-            const progressInterval = setInterval(() => {
-                if (width >= 16.66) {
-                    clearInterval(progressInterval);
-                } else {
-                    width += 0.5;
-                    progress.style.width = width + '%';
-                }
-            }, 10);
-            
-            // 为所有按钮添加点击效果
-            const buttons = document.querySelectorAll('.button');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    if (this.id && this.id.startsWith('download-pdf')) {
-                        e.preventDefault();
-                        // 显示下载确认提示
-                        if (confirm('您确定要下载PDF指南吗？')) {
-                            // 模拟下载过程
-                            setTimeout(() => {
-                                window.location.href = this.href;
-                                alert('PDF指南下载成功！');
-                            }, 500);
-                        }
-                    } else {
-                        e.preventDefault();
-                        // 添加点击动画
-                        this.style.transform = 'scale(0.95)';
-                        
-                        setTimeout(() => {
-                            this.style.transform = '';
-                            
-                            if (this.closest('.reflection-box')) {
-                                // 显示保存成功消息
-                                const box = this.closest('.reflection-box');
-                                const successMsg = document.createElement('p');
-                                successMsg.textContent = '✓ 反思已保存！';
-                                successMsg.style.color = '#2ecc71';
-                                successMsg.style.marginTop = '10px';
-                                successMsg.style.fontWeight = '600';
-                                box.appendChild(successMsg);
-                                
-                                // 3秒后移除消息
-                                setTimeout(() => {
-                                    successMsg.remove();
-                                }, 3000);
-                            }
-                        }, 150);
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
