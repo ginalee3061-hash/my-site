@@ -343,7 +343,7 @@
         }
         
         .progress-container {
-            background: white;
+            background:_WHAT IS THIS? white;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
@@ -442,7 +442,7 @@
             <p>专业拖延症解决方案 - 从微小行动开始改变</p>
             
             <div class="cta-container">
-                <a href="#download" class="button"><i class="fas fa-download"></i> 下载完整PDF指南</a>
+                <a href="拖延症解决方案.pdf" class="button" id="download-pdf"><i class="fas fa-download"></i> 下载完整PDF指南</a>
                 <a href="#challenge" class="button accent"><i class="fas fa-play-circle"></i> 开始6日挑战</a>
             </div>
         </div>
@@ -455,14 +455,14 @@
             <div class="highlight">
                 <p>大家常把拖延症跟“懒惰”划上等号，但心理学家指出，拖延是一种情绪调节问题，而非简单的懒惰。面对重要任务时，我们常因恐惧失败、完美主义或无聊感而选择逃避，寻求即时快乐。</p>
                 <p><strong>关键点：</strong> 拖延不是性格缺陷，而是大脑的自然反应。改变从理解开始！</p>
-                <a href="#download" class="button"><i class="fas fa-file-pdf"></i> 获取完整解决方案</a>
+                <a href="拖延症解决方案.pdf" class="button" id="download-pdf-2"><i class="fas fa-file-pdf"></i> 获取完整解决方案</a>
             </div>
         </div>
 
         <div class="pdf-section" id="download">
             <h3><i class="fas fa-file-pdf"></i> 下载完整拖延症解决方案PDF</h3>
             <p>这份35页的指南详细解释了拖延的心理学原理，并提供实用工具和可打印工作表，帮助你彻底克服拖延习惯。</p>
-            <a href="#" class="button"><i class="fas fa-download"></i> 立即下载完整指南 (PDF, 2.8MB)</a>
+            <a href="拖延症解决方案.pdf" class="button" id="download-pdf-3"><i class="fas fa-download"></i> 立即下载完整指南 (PDF, 2.8MB)</a>
             <p style="margin-top: 15px; font-size: 0.9rem;">已帮助超过5,000人克服拖延问题</p>
         </div>
 
@@ -628,7 +628,7 @@
             <!-- 实际应用中会有6天的完整内容 -->
             
             <div class="cta-container" style="margin-top: 2rem;">
-                <a href="#" class="button"><i class="fas fa-print"></i> 打印6日挑战计划表</a>
+                <a href="拖延症解决方案.pdf" class="button" id="download-pdf-4"><i class="fas fa-print"></i> 打印6日挑战计划表</a>
             </div>
         </div>
     </div>
@@ -666,30 +666,41 @@
             const buttons = document.querySelectorAll('.button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // 添加点击动画
-                    this.style.transform = 'scale(0.95)';
-                    
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        
-                        if(this.closest('.reflection-box')) {
-                            // 显示保存成功消息
-                            const box = this.closest('.reflection-box');
-                            const successMsg = document.createElement('p');
-                            successMsg.textContent = '✓ 反思已保存！';
-                            successMsg.style.color = '#2ecc71';
-                            successMsg.style.marginTop = '10px';
-                            successMsg.style.fontWeight = '600';
-                            box.appendChild(successMsg);
-                            
-                            // 3秒后移除消息
+                    if (this.id && this.id.startsWith('download-pdf')) {
+                        e.preventDefault();
+                        // 显示下载确认提示
+                        if (confirm('您确定要下载PDF指南吗？')) {
+                            // 模拟下载过程
                             setTimeout(() => {
-                                successMsg.remove();
-                            }, 3000);
+                                window.location.href = this.href;
+                                alert('PDF指南下载成功！');
+                            }, 500);
                         }
-                    }, 150);
+                    } else {
+                        e.preventDefault();
+                        // 添加点击动画
+                        this.style.transform = 'scale(0.95)';
+                        
+                        setTimeout(() => {
+                            this.style.transform = '';
+                            
+                            if (this.closest('.reflection-box')) {
+                                // 显示保存成功消息
+                                const box = this.closest('.reflection-box');
+                                const successMsg = document.createElement('p');
+                                successMsg.textContent = '✓ 反思已保存！';
+                                successMsg.style.color = '#2ecc71';
+                                successMsg.style.marginTop = '10px';
+                                successMsg.style.fontWeight = '600';
+                                box.appendChild(successMsg);
+                                
+                                // 3秒后移除消息
+                                setTimeout(() => {
+                                    successMsg.remove();
+                                }, 3000);
+                            }
+                        }, 150);
+                    }
                 });
             });
         });
