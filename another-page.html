@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gina Lee Micro-Action | 专业拖延症解决方案</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 这里保留你提供的完整CSS样式 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --gray: #7f8c8d;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px;
+        }
+        
+        /* 保留所有其他CSS样式 */
+        /* ... */
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .download-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">Gina Lee Micro-Action</div>
+    <div class="pdf-watermark">Gina Lee Micro-Action</div>
+    
+    <!-- 导航栏 (与首页一致) -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="GinaLee Micro Action Logo">
+                <span>GinaLee Micro Action</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="another-page.html">拖延症解决方案</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="loading">
+        <div class="spinner"></div>
+        <h3>正在生成PDF文件，请稍候...</h3>
+        <p>这可能需要几秒钟时间</p>
+    </div>
+    
+    <div class="container" id="content">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1>拖延症的真相</h1>
+            <p>不只是懒，更是情绪在搞鬼！</p>
+            <div class="download-section">
+                <button class="download-button" id="download-pdf">
+                    <i class="fas fa-file-pdf"></i> 下载完整PDF解决方案
+                </button>
+            </div>
+        </header>
+        
+        <!-- 保留所有内容部分 -->
+        <div class="card">
+            <h2><i class="fas fa-lightbulb"></i> 心理学视角</h2>
+            
+            <div class="highlight">
+                <p>大家常把拖延症跟"懒惰"划上等号，觉得拖延的人就是不努力、没毅力。但心理学家告诉我们，这其实是个很大的误解！拖延不是因为你懒，而是一种情绪调节出了问题。</p>
+            </div>
+            
+            <!-- 保留所有其他内容 -->
+            <!-- ... -->
+        </div>
+        
+        <!-- 保留所有其他卡片和内容 -->
+        <!-- ... -->
+    </div>
+
+    <!-- 页脚 (与首页一致) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="another-page.html">拖延症解决方案</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+                <p>contact@ginalee.com | 关注我的社交媒体获取最新更新</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GinaLee Micro Action. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // PDF下载功能脚本
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const element = document.getElementById('content');
+            const watermark = document.querySelector('.pdf-watermark');
+            const loading = document.querySelector('.loading');
+            
+            // 显示水印和加载动画
+            watermark.style.display = 'block';
+            loading.style.display = 'flex';
+            
+            // 配置PDF选项
+            const opt = {
+                margin: 10,
+                filename: 'GinaLee-拖延症解决方案.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // 生成PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // 完成后隐藏水印和加载动画
+                watermark.style.display = 'none';
+                loading.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
