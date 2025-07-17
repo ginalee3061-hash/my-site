@@ -3,107 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GinaLee Micro Action | 微行动生产力解决方案</title>
+    <title>Gina Lee Micro-Action | 主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --gray: #7f8c8d;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo i {
+            font-size: 36px;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        header p {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 500;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="watermark">Gina Lee Micro-Action</div>
-    
-    <!-- 导航栏 -->
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="GinaLee Micro Action Logo">
-                <span>GinaLee Micro Action</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="another-page.html">拖延症解决方案</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="contact.html">联系</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- 英雄区域 -->
-    <section class="hero">
-        <div class="container">
-            <h1>微行动改变大生活</h1>
-            <p>通过心理学支持的小步骤方法，帮助您克服拖延症，提高生产力，实现目标</p>
-            <div class="action-buttons">
-                <a href="another-page.html" class="primary-button">查看拖延症解决方案</a>
-                <a href="#support" class="secondary-button">支持我的创作</a>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
             </div>
-        </div>
-    </section>
-
-    <!-- 知识分享区域 -->
-    <section class="knowledge-section" id="knowledge">
-        <div class="container">
-            <div class="section-title">
-                <h2>知识分享</h2>
+            <h1>Gina Lee Micro-Action</h1>
+            <p>专业拖延症解决方案 - 从微小行动开始改变</p>
+            <div>
+                <a href="another-page.html" class="nav-button">
+                    <i class="fas fa-arrow-right"></i> 查看完整解决方案
+                </a>
             </div>
-            <div class="knowledge-grid">
-                <!-- 知识卡片1 -->
-                <div class="knowledge-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>微行动方法论</h3>
-                    <p>如何通过每天的小行动实现大改变，克服拖延和行动障碍的实用技巧</p>
-                    <a href="another-page.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+        </header>
+        
+        <div class="card">
+            <h2>为什么选择我们的方法？</h2>
+            <p>基于心理学研究的微行动方法，帮你打破拖延循环，建立高效习惯。</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>2分钟法则</h3>
+                    <p>任何任务都可以从2分钟内完成的小动作开始，轻松启动不拖延。</p>
                 </div>
                 
-                <!-- 其他卡片保持不变 -->
-                <!-- 知识卡片2 -->
-                <div class="knowledge-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>生产力提升</h3>
-                    <p>不依赖意志力的生产力系统，适合创意工作者和知识工作者的高效方法</p>
-                    <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>情绪调节</h3>
+                    <p>理解拖延背后的情绪因素，建立健康的应对机制。</p>
                 </div>
                 
-                <!-- 知识卡片3 -->
-                <div class="knowledge-card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>工作生活平衡</h3>
-                    <p>在现代快节奏生活中找到平衡点的策略，避免过度工作和倦怠</p>
-                    <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                <div class="feature">
+                    <i class="fas fa-tasks"></i>
+                    <h3>6日挑战</h3>
+                    <p>循序渐进的6天行动计划，帮你建立持久改变。</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 其余部分保持不变 -->
-    <!-- 赞助区域 -->
-    <section class="support-section" id="support">
-        <div class="container">
-            <h2>支持我的创作</h2>
-            <p>如果您觉得我的分享有价值，欢迎通过赞助支持我继续创作更多优质内容。您的支持将帮助我投入更多时间研究和撰写深度文章。</p>
-            <a href="https://www.paypal.com/你的PayPal链接" class="paypal-button">
-                <i class="fab fa-paypal"></i> 通过PayPal赞助
-            </a>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <ul class="footer-links">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="another-page.html">拖延症解决方案</a></li>
-                    <li><a href="about.html">关于我</a></li>
-                    <li><a href="contact.html">联系</a></li>
-                    <li><a href="#">隐私政策</a></li>
-                </ul>
-                <p>contact@ginalee.com | 关注我的社交媒体获取最新更新</p>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 GinaLee Micro Action. 保留所有权利。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+        
+        <footer>
+            <p>&copy; 2023 Gina Lee Micro-Action. 保留所有权利。</p>
+        </footer>
+    </div>
 </body>
 </html>
